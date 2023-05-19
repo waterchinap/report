@@ -368,6 +368,156 @@ document.write(`
 <h2>数据集<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>利用<code class="docutils literal notranslate"><span class="pre">akshare</span></code>的业绩报告模块，下载全部上市公司自2010年起的业绩报告。</p>
 <p>业绩报告包含的信息：</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>序号</td>
+      <td>int64</td>
+      <td>0.000000</td>
+      <td>5051</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>股票代码</td>
+      <td>int64</td>
+      <td>0.000000</td>
+      <td>600600</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>股票简称</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>青岛啤酒</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>每股收益</td>
+      <td>float64</td>
+      <td>1.772486</td>
+      <td>2.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>营业收入-营业收入</td>
+      <td>float64</td>
+      <td>0.188940</td>
+      <td>19272658300.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>营业收入-同比增长</td>
+      <td>float64</td>
+      <td>9.823344</td>
+      <td>5.365966</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>营业收入-季度环比增长</td>
+      <td>float64</td>
+      <td>38.700052</td>
+      <td>9.3003</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>净利润-净利润</td>
+      <td>float64</td>
+      <td>0.026502</td>
+      <td>2852094449.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>净利润-同比增长</td>
+      <td>float64</td>
+      <td>9.352240</td>
+      <td>18.07</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>净利润-季度环比增长</td>
+      <td>float64</td>
+      <td>38.399182</td>
+      <td>53.2431</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>每股净资产</td>
+      <td>float64</td>
+      <td>4.812369</td>
+      <td>17.95639</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>净资产收益率</td>
+      <td>float64</td>
+      <td>2.446560</td>
+      <td>11.65</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>每股经营现金流量</td>
+      <td>float64</td>
+      <td>4.056607</td>
+      <td>3.458787</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>销售毛利率</td>
+      <td>float64</td>
+      <td>2.401040</td>
+      <td>38.095654</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>所处行业</td>
+      <td>object</td>
+      <td>37.796506</td>
+      <td>酿酒行业</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>最新公告日期</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>2022-08-26</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>qs</td>
+      <td>int64</td>
+      <td>0.000000</td>
+      <td>20220630</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>初步分析此数据集，有如下观点：</p>
 <ul class="simple">
 <li><p>共17列，其中序号无意义，代码数据格式不正确，但可以不考虑。</p></li>
