@@ -1,0 +1,949 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>数据集的准备 &#8212; My Reports</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mywork/tidydata';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="上市公司数量分析" href="listed.html" />
+    <link rel="prev" title="关于本站" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    关于本站
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">数据准备</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listed.html">上市公司数量</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yjbg.html">业绩报告分析</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmywork/tidydata.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/mywork/tidydata.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>数据集的准备</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">下载数据</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">合并数据</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">整理一下数据</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>数据集的准备<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>下载数据<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>从akshare上下载业绩报告数据。</p></li>
+<li><p>从tushare下载上市公司基本情况数据。</p></li>
+<li><p>两个数据集的基本情况如下。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>股票代码</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>831067</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>股票简称</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>根力多</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>每股收益</td>
+      <td>float64</td>
+      <td>1.772489</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>营业收入-营业收入</td>
+      <td>float64</td>
+      <td>0.188974</td>
+      <td>134457041.49</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>净利润-净利润</td>
+      <td>float64</td>
+      <td>0.026506</td>
+      <td>4790126.66</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>每股净资产</td>
+      <td>float64</td>
+      <td>4.812289</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>净资产收益率</td>
+      <td>float64</td>
+      <td>2.447307</td>
+      <td>11.7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>每股经营现金流量</td>
+      <td>float64</td>
+      <td>4.056393</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>销售毛利率</td>
+      <td>float64</td>
+      <td>2.401467</td>
+      <td>12.28355</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>最新公告日期</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>2014-08-29</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>qs</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20130630</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ts_code</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>873339.BJ</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>symbol</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>873339</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>name</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>恒太照明</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>area</td>
+      <td>object</td>
+      <td>3.664211</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>industry</td>
+      <td>object</td>
+      <td>3.664211</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>fullname</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>江苏恒太照明股份有限公司</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>enname</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>Jiangsu Ever-Tie Lighting Co., Ltd</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>cnspell</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>htzm</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>market</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>北交所</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>exchange</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>BSE</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>curr_type</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>CNY</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>list_status</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>list_date</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20221117</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>delist_date</td>
+      <td>float64</td>
+      <td>100.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>is_hs</td>
+      <td>object</td>
+      <td>0.019387</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id3">
+<h2>合并数据<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>把基本信息中的[‘area’, ‘industry’, ‘market’, ‘exchange’, ‘list_status’,’list_date’, ‘delist_date’, ‘is_hs’]合并到业绩报告中去。</p></li>
+<li><p>业绩报告包括了新三板的，而股票信息则只含有北上深三个交易所的信息。</p></li>
+<li><p>保留业绩报告的数据的情况下合并：left merge</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>整理一下数据<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>把市场和交易所的信息填好，北上深市以外的填写为其它。</p></li>
+<li><p>把报告期分成年和季度。</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>列名</th>
+      <th>类型</th>
+      <th>缺失比%</th>
+      <th>样例</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>股票代码</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>603816</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>股票简称</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>顾家家居</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>每股收益</td>
+      <td>float64</td>
+      <td>1.772489</td>
+      <td>0.46</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>营业收入-营业收入</td>
+      <td>float64</td>
+      <td>0.188974</td>
+      <td>1380053186.45</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>净利润-净利润</td>
+      <td>float64</td>
+      <td>0.026506</td>
+      <td>187848743.4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>每股净资产</td>
+      <td>float64</td>
+      <td>4.812289</td>
+      <td>8.788846</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>净资产收益率</td>
+      <td>float64</td>
+      <td>2.447307</td>
+      <td>5.32</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>每股经营现金流量</td>
+      <td>float64</td>
+      <td>4.056393</td>
+      <td>0.236313</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>销售毛利率</td>
+      <td>float64</td>
+      <td>2.401467</td>
+      <td>37.881718</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>最新公告日期</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>2018-04-28</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>qs</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>20170331</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>symbol</td>
+      <td>object</td>
+      <td>39.349006</td>
+      <td>603816</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>area</td>
+      <td>object</td>
+      <td>40.849572</td>
+      <td>浙江</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>industry</td>
+      <td>object</td>
+      <td>40.849572</td>
+      <td>家居用品</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>market</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>主板</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>exchange</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>SSE</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>list_status</td>
+      <td>object</td>
+      <td>39.349006</td>
+      <td>L</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>list_date</td>
+      <td>object</td>
+      <td>39.349006</td>
+      <td>20161014</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>delist_date</td>
+      <td>float64</td>
+      <td>100.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>is_hs</td>
+      <td>object</td>
+      <td>39.354619</td>
+      <td>H</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Year</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Quarter</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>Q1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mywork"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">关于本站</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="listed.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">上市公司数量分析</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">下载数据</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">合并数据</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">整理一下数据</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Eric
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
