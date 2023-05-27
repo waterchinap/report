@@ -5,8 +5,8 @@
 - jupyterlab
 - jupyter-book: `jb build`
 - code
-- ghp-import
-- cloudflair pages: `ghp-import -n -p -f _build/html`
+- ghp-import:`ghp-import -n -p -f _build/html`
+- cloudflair pages: `doc.zealative.top`
 
 ```{tableofcontents}
 
